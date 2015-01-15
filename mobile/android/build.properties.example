@@ -1,8 +1,5 @@
-titanium.sdk=/Library/Application\ Support/Titanium/
-titanium.os=osx
-titanium.version=3.0.2.GA
-android.sdk=/usr/android-sdk
-
-titanium.platform=${titanium.sdk}/mobilesdk/${titanium.os}/${titanium.version}/android
-android.platform=${android.sdk}/platforms/android-8
-google.apis=${android.sdk}/add-ons/addon_google_apis_google_inc_8
+titanium.sdk.version=3.4.1.GA
+titanium.platform=${env.HOME}/Library/Application Support/Titanium/mobilesdk/osx/${titanium.sdk.version}/android
+android.platform=${env.ANDROID_SDK}/platforms/android-14
+google.apis=${env.ANDROID_SDK}/add-ons/addon-google_apis-google-14
+android.ndk=${env.ANDROID_NDK}
