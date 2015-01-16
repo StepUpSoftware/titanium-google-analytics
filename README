@@ -1,0 +1,23 @@
+Lots of problems building 64 bit support for this module
+
+I used these commands to do so
+
+xcodebuild -project 'google-analytics.xcodeproj' -configuration 'Release' -sdk 'iphoneos8.1' clean build ARCHS='armv7 armv7s' IPHONEOS_DEPLOYMENT_TARGET='6.0' TARGET_BUILD_DIR='./build-arm' BUILT_PRODUCTS_DIR='./build-arm'
+
+xcodebuild -project 'google-analytics.xcodeproj' -configuration 'Release' -sdk 'iphoneos8.1' clean build ARCHS='arm64' IPHONEOS_DEPLOYMENT_TARGET='6.0' TARGET_BUILD_DIR='./build-arm64' BUILT_PRODUCTS_DIR='./build-arm64'
+
+xcodebuild -project 'google-analytics.xcodeproj' -configuration 'Release' -sdk 'iphonesimulator8.1' clean build ARCHS='x86_64' VALID_ARCHS='x86_64' IPHONEOS_DEPLOYMENT_TARGET='8.1' TARGET_BUILD_DIR='./build-x86_64' BUILT_PRODUCTS_DIR='./build-x86_64'
+
+lipo -create './build-arm/libanalyticsGoogle.a' './build-arm64/libanalyticsGoogle.a' './build-i386/libanalyticsGoogle.a' './build-x86_64/libanalyticsGoogle.a' -output 'libanalytics.google.a'
+
+I then copied the resultant file into the module dist folder
+
+The commands came from
+http://stackoverflow.com/questions/2793392/how-do-i-compile-a-static-library-fat-for-armv6-armv7-and-i386
+and
+https://github.com/diogot/StaticLibDemo
+
+Appcelerator steps from
+http://www.appcelerator.com/blog/2014/11/alpha-version-of-titanium-sdk-64-bit-support-now-available/
+and
+https://jira.appcelerator.org/browse/TIMOB-18065
