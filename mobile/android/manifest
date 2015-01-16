@@ -2,10 +2,11 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 2.2.0
+version: 2.2.1
 apiversion: 2
 description: Google Analytics for Titanium Appcelerator
 author: Matt Tuttle
+architectures: armeabi armeabi-v7a x86
 license: MIT
 copyright: Copyright (c) 2012 by Matt Tuttle
 
@@ -15,4 +16,4 @@ name: googleAnalytics
 moduleid: analytics.google
 guid: 6bdae9d9-4154-4d21-aacf-c0f95b193dae
 platform: android
-minsdk: 3.0.2.GA
+minsdk: 3.5.0.GA
